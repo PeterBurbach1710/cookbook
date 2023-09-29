@@ -1,14 +1,21 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useState, useEffect} from 'react';
 import RecipeListItem from './RecipeListItem';
-import initialRecipes from './recipes';
 import { Recipe } from './types/Recipe';
-import { useState } from 'react';
 
 function RecipeList() : React.ReactElement {
+    
     const [headline] = useState<string> ('Rezeptliste');
 
-    const [recipes, setRecipes] = useState<Recipe[]>(initialRecipes);
+    const [recipes, setRecipes] = useState<Recipe[]>([]);
 
+    useEffect(() => {
+        const promise = axios.get<Recipe[]>('http://localhost:3001/recipe');
+        promise.then(({data}) => {
+            setRecipes(data);
+        });
+    }, []);
+    
     function handleDelete(id: number) {
         setRecipes((prevRecipes) => {
             return prevRecipes.filter((recipe) => recipe.id !== id);
