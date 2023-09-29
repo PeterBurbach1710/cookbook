@@ -10,10 +10,11 @@ function RecipeList() : React.ReactElement {
     const [recipes, setRecipes] = useState<Recipe[]>([]);
 
     useEffect(() => {
-        const promise = axios.get<Recipe[]>('http://localhost:3001/recipe');
-        promise.then(({data}) => {
+        async function fetchData() {
+            const { data } = await axios.get<Recipe[]>('http://localhost:3001/recipe');
             setRecipes(data);
-        });
+        }
+        fetchData();
     }, []);
     
     function handleDelete(id: number) {
