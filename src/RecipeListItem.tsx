@@ -1,14 +1,24 @@
 import React from 'react';
+import { Recipe } from './types/Recipe';
 
-function RecipeListItem() : React.ReactElement {
-    const recipe = {
-        title: 'Schnitzel'
-    };
-    return <div>
+type Props = {
+    recipe: Recipe;
+    onDelete: (id: number) => void;
+}
+
+function RecipeListItem({ recipe, onDelete }: Props) : React.ReactElement {
+    return (
         <div>
-            {recipe.title} <button>löschen</button>
+            <div>
+                {recipe.title} 
+                <button
+                    onClick={() => {
+                        onDelete(recipe.id);
+                    }}
+                >löschen</button>
+            </div>
         </div>
-    </div>
+    )
 }
 
 export default RecipeListItem;
