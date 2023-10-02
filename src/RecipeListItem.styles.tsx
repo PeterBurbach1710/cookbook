@@ -1,10 +1,25 @@
 import styled from 'styled-components';
+import Card from '@material-ui/core/Card';
 
-export const Row = styled.div`
+export const Row = styled(Card)`
     display: flex;
     line-height: 40px;
-    margin: 0 20px;
+    margin: 10px 20px;
     box-shadow: 2px 2px 5px 0 rgba(150, 150, 150, 0.5);
+`;
+
+type Props = {
+    darkMode: boolean;
+}
+
+export const Padding = styled.div<Props>`
+    padding-left: 20px;
+    color: ${({darkMode}) => darkMode ? 'white' : 'black'};
+    background-color: ${({darkMode}) => darkMode ? 'black' : 'white'};
+`;
+
+export const Title = styled(Padding)`
+    min-width: 200px;
 `;
 
 /* .row {
