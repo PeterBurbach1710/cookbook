@@ -20,7 +20,7 @@ function RecipeListItem({ recipe, onDelete }: Props) : React.ReactElement {
         }
     }, [recipe.id]);
 
-    let titleClasses = classNames({
+    const titleClasses = classNames({
         Title: true,
         Padding: true
     });
