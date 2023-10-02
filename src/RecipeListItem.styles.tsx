@@ -9,13 +9,13 @@ export const Row = styled(Card)`
 `;
 
 type Props = {
-    darkMode: boolean;
+  darkmode: boolean;
 }
 
 export const Padding = styled.div<Props>`
     padding-left: 20px;
-    color: ${({darkMode}) => darkMode ? 'white' : 'black'};
-    background-color: ${({darkMode}) => darkMode ? 'black' : 'white'};
+    color: ${({darkmode}) => darkmode ? 'white' : 'black'};
+    background-color: ${({darkmode}) => darkmode ? 'black' : 'white'};
 `;
 
 export const Title = styled(Padding)`

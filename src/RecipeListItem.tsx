@@ -34,10 +34,10 @@ function RecipeListItem({ recipe, onDelete }: Props) : React.ReactElement {
 
     return (
         <Row>
-           <Title darkMode={darkMode} className='Title'>
+           <Title darkmode={darkMode} className='Title'>
                 {recipe.title} 
             </Title>
-            <Padding darkMode={darkMode}>
+            <Padding darkmode={darkMode}>
                 <IconButton aria-label="delete"
                     onClick={() => {
                         onDelete(recipe.id);
