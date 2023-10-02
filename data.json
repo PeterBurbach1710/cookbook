@@ -1,6 +1,27 @@
 {
   "recipe": [
     {
+      "id": 1,
+      "title": "Schnitzel",
+      "ingredients": [
+        {
+          "title": "Fleisch",
+          "amount": 1,
+          "unit": "kg"
+        },
+        {
+          "title": "Panade",
+          "amount": 0.5,
+          "unit": "kg"
+        }
+      ],
+      "steps": [
+        "panieren",
+        "braten"
+      ],
+      "rating": 5
+    },
+    {
       "id": 2,
       "title": "Bratkartoffeln",
       "ingredients": [

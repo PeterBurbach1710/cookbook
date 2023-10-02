@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 import RecipeListItem from './RecipeListItem';
 import { Recipe } from './types/Recipe';
 
+import './RecipeList.css';
+
 function RecipeList() : React.ReactElement {
     
     const [headline] = useState<string> ('Rezeptliste');
@@ -31,7 +33,7 @@ function RecipeList() : React.ReactElement {
 
     return (
         <div>
-            <h1>{headline}</h1>
+            <h1 className="headline">{headline}</h1>
             {recipes.map(recipe => 
                 <RecipeListItem recipe={recipe} key={recipe.id} onDelete={handleDelete}/>
             )}
