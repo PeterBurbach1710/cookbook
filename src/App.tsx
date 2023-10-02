@@ -4,13 +4,11 @@ import RecipeList from './RecipeList';
 import { darkModeContext } from './darkModeContext';
 
 function App() {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(true);
 
-  return (<darkModeContext.Provider 
-    value={[darkMode, setDarkMode]}
-    >
+  return (<darkModeContext.Provider value={[darkMode, setDarkMode]}>
       <RecipeList />
-    </darkModeContext.Provider>
+      </darkModeContext.Provider>
   );
 }
 
