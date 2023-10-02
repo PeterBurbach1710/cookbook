@@ -1,3 +1,4 @@
+import { Button, TextField } from '@material-ui/core';
 import React, { ChangeEvent, useState } from 'react';
 
 type RecipeFormContent = {
@@ -40,11 +41,16 @@ function RecipeForm(): React.ReactElement {
             handleSubmit();
         }}>
         <h1>Form works</h1>
-        <label>
-            Title
-            <input type ="text" name="title" value={data.title} onChange={handleChange}/>
-        </label>
-        <button>speichern</button>
+        <div>
+            <TextField 
+                label="Title"
+                type="text" 
+                name="title" 
+                value={data.title} 
+                onChange={handleChange}
+            />
+        </div>
+        <Button type="submit">speichern</Button>
     </form>
 }
 
