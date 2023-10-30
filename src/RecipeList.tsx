@@ -9,7 +9,7 @@ function RecipeList() : React.ReactElement {
     
     const [headline] = useState<string> ('Rezeptliste'); 
 
-    const {recipes, handleDelete} = useRecipe();
+    const {recipes, handleDelete, handleSave} = useRecipe();
 
     return (
         <div>
@@ -18,7 +18,7 @@ function RecipeList() : React.ReactElement {
                 <RecipeListItem recipe={recipe} key={recipe.id} onDelete={handleDelete}/>
             )}
         <hr/>
-        <RecipeForm />
+        <RecipeForm onSave={handleSave}/>
         </div>
     )
     ;

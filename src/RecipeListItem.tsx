@@ -19,7 +19,7 @@ type Props = {
 }
 
 function RecipeListItem({ recipe, onDelete }: Props) : React.ReactElement {
-    const [darkMode, setDarkMode] = useContext(darkModeContext);
+    const [darkMode] = useContext(darkModeContext);
 
     // useEffect(() => {
     //     return () => {
