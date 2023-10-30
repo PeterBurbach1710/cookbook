@@ -43,82 +43,59 @@
       "rating": 5
     },
     {
-      "title": "sdfsd",
+      "title": "Pfannkuchen",
       "ingredients": [
         {
-          "title": "asd",
-          "amount": null,
-          "unit": "ads"
+          "title": "",
+          "amount": 10,
+          "unit": ""
         },
         {
-          "title": "sad",
-          "amount": null,
-          "unit": "ad"
+          "title": "",
+          "amount": 8,
+          "unit": ""
         },
         {
-          "title": "asd",
-          "amount": null,
-          "unit": "asd"
+          "title": "",
+          "amount": 12,
+          "unit": ""
         }
       ],
       "steps": [
-        "asd",
-        "asd",
-        "asd"
+        "",
+        "",
+        ""
+      ],
+      "id": 3
+    },
+    {
+      "title": "hjhj",
+      "ingredients": [
+        {
+          "title": "",
+          "amount": 2,
+          "unit": ""
+        },
+        {
+          "title": "",
+          "amount": null,
+          "unit": ""
+        },
+        {
+          "title": "",
+          "amount": null,
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "",
+        "",
+        ""
       ],
       "id": 4
     },
     {
-      "title": "",
-      "ingredients": [
-        {
-          "title": "2323",
-          "amount": 2323,
-          "unit": "2323"
-        },
-        {
-          "title": "323",
-          "amount": 322,
-          "unit": "2323"
-        },
-        {
-          "title": "232",
-          "amount": 232,
-          "unit": "2323"
-        }
-      ],
-      "steps": [
-        "323",
-        "23",
-        "2323"
-      ],
       "id": 5
-    },
-    {
-      "title": "4545",
-      "ingredients": [
-        {
-          "title": "34343",
-          "amount": 4343,
-          "unit": "343"
-        },
-        {
-          "title": "34",
-          "amount": 34,
-          "unit": "34"
-        },
-        {
-          "title": "3434",
-          "amount": 3434,
-          "unit": "3434"
-        }
-      ],
-      "steps": [
-        "3434",
-        "3434",
-        "3434"
-      ],
-      "id": 6
     }
   ]
 }

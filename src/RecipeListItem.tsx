@@ -7,11 +7,11 @@ import { Recipe } from './types/Recipe';
 import './RecipeListItem.scss';
 // module css: import styles from './RecipeListItem.module.css';
 // import classNames from 'classnames';
-import { Row, Padding, Title } from './RecipeListItem.styles';
-import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { Link } from 'react-router-dom';
+import { Padding, Row, Title } from './RecipeListItem.styles';
 import { darkModeContext } from './darkModeContext';
-
 
 type Props = {
     recipe: Recipe;
@@ -35,7 +35,7 @@ function RecipeListItem({ recipe, onDelete }: Props) : React.ReactElement {
     return (
         <Row>
            <Title darkmode={darkMode} className='Title'>
-                {recipe.title} 
+                <Link to={`/detail/${recipe.id}`}>{recipe.title}</Link>
             </Title>
             <Padding darkmode={darkMode}>
                 <IconButton aria-label="delete"

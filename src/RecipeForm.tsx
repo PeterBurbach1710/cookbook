@@ -1,6 +1,8 @@
 import { Button, TextField } from "@material-ui/core";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useEffect, useRef } from "react";
 import { Recipe } from "./types/Recipe";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import validationSchema from "./validationSchema";
 
 type RecipeFormContent = {
   title: string;
@@ -26,7 +28,7 @@ type RecipeFormContent = {
   // vegan: boolean;
   // glutenFree: boolean;
   // lactoseFree: boolean;
-  // image: string;
+  image?: any;
 };
 
 const initialContent = {
@@ -50,6 +52,12 @@ type RecipeFormProps = {
 };
 
 function RecipeForm({onSave}: RecipeFormProps): React.ReactElement {
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    useEffect( () => {
+        inputRef.current?.focus();
+    })
+
 /*   const [data, setData] = useState<RecipeFormContent>(initialContent);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
@@ -82,13 +90,14 @@ function RecipeForm({onSave}: RecipeFormProps): React.ReactElement {
         },
       ],
       steps: [data.step1,data.step2,data.step3],
+      image: data.image,
     };
     await onSave(recipeData);
     // setData(initialContent);
   }
 
   return (
-    <Formik initialValues={initialContent} onSubmit={async (values, action) => {
+    <Formik validationSchema={validationSchema} initialValues={initialContent} onSubmit={async (values, action) => {
         await handleSubmit(values);
         // reset form state
         action.setSubmitting(false);
@@ -97,26 +106,29 @@ function RecipeForm({onSave}: RecipeFormProps): React.ReactElement {
     }}>
         
 
-    {() => {
+    {({ setFieldValue }) => {
         return (
             <Form>
                 <h1>Form works</h1>
                 <div>
-                    <Field name="title" validate={(value: string) => {
-                        if (value.length <=0) {
-                            return 'Bitte einen Titel eingeben';
-                        }
-                    }}>
+                    <Field name="title">
                         {({field, meta} : any) => (
                             <TextField
                             label="Title"
                             type="text"
                             {...field}
                             error={!!(meta.touched && meta.error)}
+                            inputRef={inputRef}
                             />
                         )}
                     </Field>
                     <ErrorMessage name="title" />
+                </div>
+                <div>
+                    <label>Bild</label>
+                    <input type="file" onChange={(event) => {
+                        setFieldValue('image', event.currentTarget.files![0])
+                    }}/>
                 </div>
                 <h2>Zutaten</h2>
                 {/* Ingredient 1 */}
@@ -134,14 +146,17 @@ function RecipeForm({onSave}: RecipeFormProps): React.ReactElement {
                     </div>
                     <div>
                         <Field name="ingredient1amount">
-                            {({field} : any) => (
+                            {({field, meta} : any) => (
                                 <TextField
                                 label="Menge"
                                 type="text"
                                 {...field}
+                                error={!!(meta.touched && meta.error)}
                                 />
                             )}
                         </Field>
+                        <ErrorMessage name="ingredient1amount" />
+                        <br/>
                     </div>
                     <div>
                         <Field name="ingredient1unit">
@@ -170,14 +185,16 @@ function RecipeForm({onSave}: RecipeFormProps): React.ReactElement {
                     </div>
                     <div>
                         <Field name="ingredient2amount">
-                            {({field} : any) => (
+                            {({field, meta} : any) => (
                                 <TextField
                                 label="Menge"
                                 type="text"
                                 {...field}
+                                error={!!(meta.touched && meta.error)}
                                 />
                             )}
                         </Field>
+                        <ErrorMessage name="ingredient2amount" />
                     </div>
                     <div>
                         <Field name="ingredient2unit">
@@ -206,14 +223,16 @@ function RecipeForm({onSave}: RecipeFormProps): React.ReactElement {
                     </div>
                     <div>
                         <Field name="ingredient3amount">
-                            {({field} : any) => (
+                            {({field, meta} : any) => (
                                 <TextField
                                 label="Menge"
                                 type="text"
                                 {...field}
+                                error={!!(meta.touched && meta.error)}
                                 />
                             )}
                         </Field>
+                        <ErrorMessage name="ingredient3amount" />
                     </div>
                     <div>
                         <Field name="ingredient3unit">
